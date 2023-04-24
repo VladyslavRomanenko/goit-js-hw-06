@@ -1,16 +1,12 @@
-let counterValue = 0;
+const decrementButtonRef = document.querySelector("[data-action=decrement]");
+const incrementButtonRef = document.querySelector("[data-action=increment]");
+const counterValue = document.querySelector("#value");
 
-const counterSpan = document.querySelector("#value");
-const counterDiv = document.querySelector("#counter");
-
-counterDiv.addEventListener("click", (event) => {
-  const button = event.target;
-  const action = button.dataset.action;
-
-  if (action === "increment") {
-    counterValue += 1;
-  } else if (action === "decrement") {
-    counterValue -= 1;
-  }
-  counterSpan.textContent = counterValue;
+decrementButtonRef.addEventListener("click", () => {
+  const currentValue = Number(counterValue.textContent);
+  counterValue.textContent = currentValue - 1;
+});
+incrementButtonRef.addEventListener("click", () => {
+  const currentValue = Number(counterValue.textContent);
+  counterValue.textContent = currentValue + 1;
 });

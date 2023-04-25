@@ -12,7 +12,12 @@ const inputRef = document.querySelector("input");
 const createBoxes = (amount) => {
   const divBoxes = [];
   let boxesSize = 30;
+  let currentBox = boxesContainer.lastElementChild;
 
+  if (currentBox) {
+    const currentBoxSize = currentBox.clientWidth;
+    boxesSize = currentBoxSize + 10;
+  }
   for (let i = 0; i < amount; i++) {
     const divEl = document.createElement("div");
     divEl.style.width = `${boxesSize}px`;
